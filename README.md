@@ -20,7 +20,7 @@
 ## Documentation
 See the [Doc](https://docs.leapcell.io/docs/data)
 
-See the [RESTful API doc](https://docs.leapcell.io/api/)
+See the [API reference](https://docs.leapcell.io/api/)
 
 ## Installation
 
