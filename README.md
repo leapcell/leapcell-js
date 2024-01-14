@@ -17,6 +17,11 @@
     <a href="https://twitter.com/LeapcellDev"><b>Twitter</b></a>
 </p>
 
+## Documentation
+See the [Doc](https://docs.leapcell.io/docs/data)
+
+See the [RESTful API doc](https://docs.leapcell.io/api/)
+
 ## Installation
 
 The SDK supports both JavaScript and TypeScript, and you can install it using npm.
