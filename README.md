@@ -32,7 +32,7 @@ npm install @leapcell/leapcell-js
 
 ## Preparation
 
-Leapcell uses an `API Token` to access the Leapcell API. You can learn more about the API Token [here](/docs/authentication).
+Leapcell uses an `API Token` to access the Leapcell API. You can learn more about the API Token [here](https://docs.leapcell.io/docs/authentication).
 
 ## Quick Start
 
