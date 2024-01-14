@@ -4,7 +4,6 @@
             <img src="/assets/readme_logo.png" />
             <br>
             <br>
-            <br>
             Leapcell Javascript Library
         </a>
     </div>
