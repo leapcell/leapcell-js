@@ -3,19 +3,17 @@
         <a href="https://leapcell.io">
             <img src="/assets/readme_logo.png" />
             <br>
-            Leapcell Javascript Library
+            <span style="border-top: 5px">Leapcell Javascript Library</span>
         </a>
     </div>
-<br>
 </h1>
 
 <p align="center">
     <a href="http://leapcell.io"><b>Website</b></a> •
     <a href="http://docs.leapcell.io"><b>Documentation</b></a> •
     <a href="https://discord.gg/bnXWDeug5U"><b>Discord</b></a> •
-    <a href="https://twitter.com/LeapcellDev"><b>Twitter</b></a> •
+    <a href="https://twitter.com/LeapcellDev"><b>Twitter</b></a>
 </p>
-
 
 ## Installation
 
@@ -129,9 +127,7 @@ const records = await table.records.createMany([
 const count = await table.records.count();
 ```
 
-
 ## Usage
-
 
 ### Init Client
 
@@ -156,7 +152,7 @@ const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}");
 
 // Init table instance with table id
 // const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}", "id");
-````
+```
 
 ### Get Table Meta Info
 
