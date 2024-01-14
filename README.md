@@ -3,9 +3,12 @@
         <a href="https://leapcell.io">
             <img src="/assets/readme_logo.png" />
             <br>
-            <span style="border-top: 5px">Leapcell Javascript Library</span>
+            <br>
+            <br>
+            Leapcell Javascript Library
         </a>
     </div>
+    <br>
 </h1>
 
 <p align="center">
