@@ -1,18 +1,137 @@
-# JavaScript Client
+<h1 align="center" style="border-bottom: none">
+    <div>
+        <a href="https://leapcell.io">
+            <img src="/assets/readme_logo.png" />
+            <br>
+            Leapcell Javascript Library
+        </a>
+    </div>
+<br>
+</h1>
+
+<p align="center">
+    <a href="http://leapcell.io"><b>Website</b></a> •
+    <a href="http://docs.leapcell.io"><b>Documentation</b></a> •
+    <a href="https://discord.gg/bnXWDeug5U"><b>Discord</b></a> •
+    <a href="https://twitter.com/LeapcellDev"><b>Twitter</b></a> •
+</p>
+
 
 ## Installation
 
 The SDK supports both JavaScript and TypeScript, and you can install it using npm.
 
 ```bash
-npm install @leapcell/leapcell-js@latest
+npm install @leapcell/leapcell-js
 ```
+
+## Preparation
+
+Leapcell uses an `API Token` to access the Leapcell API. You can learn more about the API Token [here](/docs/authentication).
+
+## Quick Start
+
+```typescript
+import { Leapcell } from "@leapcell/leapcell-js";
+
+// Init client with token from env
+const client = new Leapcell({
+  apiKey: process.env.LEAPCELL_API_KEY!,
+});
+
+// Init table instance
+// TABLE_ID is your table ID, for example, if your table is leapcell.io/issac/blog/table/12345678, then TABLE_ID is 12345678.
+// REPO_NAME is your repository name, for example, if your repository is leapcell.io/issac/blog, then REPO_NAME is issac/blog.
+const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}");
+
+// Create record
+const record = await table.records.create({
+  title: "hello issac",
+});
+
+// Update record
+const record = await table.records.updateById({
+  id: "7ba4d5f1-8c85-4155-8deb-6d7ad88977f3",
+  data: { title: "hello issac again" },
+});
+
+// Get record by id
+const record = await table.records.findById(
+  "2bc243ee-7e77-4f5e-b5b2-2da9d70c6779"
+);
+
+// Delete record by id
+const record = await table.records.deleteById(
+  "7ba4d5f1-8c85-4155-8deb-6d7ad88977f3"
+);
+
+// Get all records
+const records = await table.records.findMany({});
+
+// Search records, like a search engine
+const records = await table.records.search({
+  query: "why leapcell",
+});
+
+// Get records if the title is "hello."
+const records = await table.records.findMany({
+  where: {
+    title: {
+      eq: "leapcell",
+    },
+  },
+});
+
+// Get records with sorting
+const records2 = await table.records.findMany({
+  where: {
+    name: {
+      eq: "leapcell",
+    },
+  },
+  orderBy: {
+    name: "asc",
+  },
+});
+
+// Update records
+const records = await table.records.updateMany({
+  where: {
+    name: {
+      eq: "issac",
+    },
+  },
+  data: {
+    category: "blog",
+  },
+});
+
+// Delete records
+const records = await table.records.deleteMany({
+  where: {
+    name: {
+      neq: "issac",
+    },
+  },
+});
+
+// Bulk create
+const records = await table.records.createMany([
+  {
+    name: "Alice",
+  },
+  {
+    name: "Bob",
+  },
+]);
+
+// Count all records
+const count = await table.records.count();
+```
+
 
 ## Usage
 
-### Preparation
-
-Leapcell uses an `API Token` to access the Leapcell API. You can learn more about the API Token [here](https://docs.leapcell.com/api/overview#authentication).
 
 ### Init Client
 
@@ -37,7 +156,7 @@ const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}");
 
 // Init table instance with table id
 // const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}", "id");
-```
+````
 
 ### Get Table Meta Info
 
@@ -242,7 +361,7 @@ The mapping between `op` and JS operators is as follows:
 const records2 = await table.records.findMany({
   where: {
     name: {
-      eq: "GGG",
+      eq: "leapcell",
     },
   },
   orderBy: {
@@ -317,6 +436,42 @@ console.log("records", records);
 ```
 
 ### Search
+
+By default, the search functionality covers all fields. If you want to specify particular fields, you can use the `fields` parameter.
+
+Similar to a search engine, Leapcell tokenizes the keywords and performs searches. For instance, when you search for "hello issac," Leapcell will first search for "hello" and then for "issac," merging the results of both searches.
+
+```typescript
+// Search for "hello"
+const records = await table.records.search({
+  query: "hello",
+});
+console.log("records", records);
+
+// Search for "hello" and "jude"
+const records = await table.records.search({
+  query: "hello jude",
+});
+console.log("records", records);
+
+// Search in the "title" field
+const records = await table.records.search({
+  query: "hello jude",
+  search_fields: "title",
+});
+console.log("records", records);
+
+// Pagination
+const records = await table.records.search({
+  query: "hello jude",
+  search_fields: "title",
+  offset: 0,
+  limit: 10,
+});
+console.log("records", records);
+```
+
+### Image Upload
 
 Leapcell supports image uploads. You can upload images to Leapcell and save the image URLs to the table.
 
