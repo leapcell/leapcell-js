@@ -46,8 +46,8 @@ const client = new Leapcell({
 
 // Init table instance
 // TABLE_ID is your table ID, for example, if your table is leapcell.io/issac/blog/table/12345678, then TABLE_ID is 12345678.
-// REPO_NAME is your repository name, for example, if your repository is leapcell.io/issac/blog, then REPO_NAME is issac/blog.
-const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}");
+// PROJECT_NAME is your project name, for example, if your project is leapcell.io/issac/blog, then PROJECT_NAME is issac/blog.
+const table = api.project("{{PROJECT_NAME}}").table("{{TABLE_ID}}");
 
 // Create record
 const record = await table.records.create({
@@ -140,7 +140,7 @@ const count = await table.records.count();
 
 You can place the API Token in the environment variable or pass it directly.
 
-`REPO_NAME` is your repository name, for example, if your repository is `leapcell.io/issac/blog`, then `REPO_NAME` is `issac/blog`.
+`PROJECT_NAME` is your project name, for example, if your project is `leapcell.io/issac/blog`, then `PROJECT_NAME` is `issac/blog`.
 
 `TABLE_ID` is your table ID, for example, if your table is `leapcell.io/issac/blog/table/12345678`, then `TABLE_ID` is `12345678`.
 
@@ -155,10 +155,10 @@ const client = new Leapcell({
 });
 
 // Init table instance
-const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}");
+const table = api.project("{{PROJECT_NAME}}").table("{{TABLE_ID}}");
 
 // Init table instance with table id
-// const table = api.repo("{{REPO_NAME}}").table("{{TABLE_ID}}", "id");
+// const table = api.project("{{PROJECT_NAME}}").table("{{TABLE_ID}}", "id");
 ```
 
 ### Get Table Meta Info

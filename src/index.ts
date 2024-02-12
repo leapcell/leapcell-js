@@ -72,4 +72,19 @@ export class Leapcell {
   repo(resource: string) {
     return ReposEndpoint.createInst(this.#context, { resource });
   }
+
+    /**
+   * @example
+   * ```ts
+   * const repo =  api.project('owner', 'repoName')
+   * ```
+   * @param {string} owner - The owner of the repo
+   * @param {string} repoName - The name of the repo
+   * @returns {ReposEndpoint}
+   * @memberof LeapcellApi
+   *
+   */
+  project(resource: string) {
+    return ReposEndpoint.createInst(this.#context, { resource });
+  }
 }

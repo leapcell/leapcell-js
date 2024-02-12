@@ -1,6 +1,6 @@
 {
   "name": "@leapcell/leapcell-js",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "leapcell js sdk",
   "main": "dist/index.js",
   "type": "module",
